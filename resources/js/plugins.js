@@ -113,7 +113,4 @@ $(function () {
     if (hash) {
         $('.nav-link[href="'+hash+'"]').tab('show');
     }
-
-    // Enable tooltips everywhere
-    $('[data-toggle="tooltip"]').tooltip();
 });
