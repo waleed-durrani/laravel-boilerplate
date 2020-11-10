@@ -1,11 +1,8 @@
-@import url('https://rsms.me/inter/inter.css');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    // https://github.com/laravel-frontend-presets/tall/issues/7
     input:invalid, textarea:invalid, select:invalid {
         box-shadow: none;
     }
