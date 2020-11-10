@@ -11,23 +11,11 @@ module.exports = {
     variants: {},
     purge: {
         content: [
-            './app/**/*.php',
-            './resources/**/*.html',
-            './resources/**/*.js',
-            './resources/**/*.jsx',
-            './resources/**/*.ts',
-            './resources/**/*.tsx',
-            './resources/**/*.php',
-            './resources/**/*.vue',
-            './resources/**/*.twig',
+            './storage/framework/views/*.php',
+            './resources/views/**/*.blade.php',
         ],
-        options: {
-            defaultExtractor: (content) => content.match(/[\w-/.:]+(?<!:)/g) || [],
-            whitelistPatterns: [/-active$/, /-enter$/, /-leave-to$/, /show$/],
-        },
     },
     plugins: [
         require('@tailwindcss/ui'),
-        require('@tailwindcss/typography'),
     ],
 };
