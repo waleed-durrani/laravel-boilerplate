@@ -29,28 +29,28 @@ class AnnouncementSeeder extends Seeder
              */
             Announcement::create([
                 'area' => null,
-                'type' => 'info',
+                'color' => 'blue',
                 'message' => 'This is a <strong>Global</strong> announcement that will show on both the frontend and backend. <em>See <strong>AnnouncementSeeder</strong> for more usage examples.</em>',
                 'enabled' => true,
             ]);
 
 //            Announcement::create([
 //                'area' => 'frontend',
-//                'type' => 'warning',
+//                'color' => 'yellow',
 //                'message' => 'This is a <strong>Frontend</strong> announcement that will not show on the backend.',
 //                'enabled' => true,
 //            ]);
 //
 //            Announcement::create([
 //                'area' => 'backend',
-//                'type' => 'danger',
+//                'color' => 'red',
 //                'message' => 'This is a <strong>Backend</strong> announcement that will not show on the frontend.',
 //                'enabled' => true,
 //            ]);
 //
 //            Announcement::create([
 //                'area' => null,
-//                'type' => 'danger',
+//                'color' => 'red',
 //                'message' => 'This announcement will be shown because the current time falls between the start and end dates.' ,
 //                'enabled' => true,
 //                'starts_at' => now()->subWeek(),
@@ -59,14 +59,14 @@ class AnnouncementSeeder extends Seeder
 //
 //            Announcement::create([
 //                'area' => null,
-//                'type' => 'danger',
+//                'color' => 'red',
 //                'message' => 'This announcement will not be shown because it is disabled.' ,
 //                'enabled' => false,
 //            ]);
 //
 //            Announcement::create([
 //                'area' => null,
-//                'type' => 'danger',
+//                'color' => 'red',
 //                'message' => 'This announcement will not be shown because the end date has passed.' ,
 //                'enabled' => true,
 //                'ends_at' => now()->subDay()
@@ -74,7 +74,7 @@ class AnnouncementSeeder extends Seeder
 //
 //            Announcement::create([
 //                'area' => null,
-//                'type' => 'danger',
+//                'color' => 'red',
 //                'message' => 'This announcement will not be shown because the current time does not fall between the start and end dates.' ,
 //                'enabled' => true,
 //                'starts_at' => now()->subWeek(),

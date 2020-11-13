@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('body')
+@section('content')
     @include('backend.includes.sidebar')
 
     <div class="c-wrapper c-fixed-components">

@@ -9,22 +9,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('meta')
 
-    @stack('before-styles')
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <livewire:styles />
-    @stack('after-styles')
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet" />
 
+    @stack('styles')
     @include('includes.partials.ga')
 </head>
-<body>
-    @yield('body')
+<body class="font-sans antialiased">
+    @yield('content')
 
-    @stack('before-scripts')
+    <livewire:scripts />
     <script src="{{ mix('js/manifest.js') }}"></script>
     <script src="{{ mix('js/vendor.js') }}"></script>
     <script src="{{ mix('js/app.js') }}"></script>
-    <livewire:scripts />
-    @stack('after-scripts')
+
+    @stack('scripts')
 </body>
 </html>

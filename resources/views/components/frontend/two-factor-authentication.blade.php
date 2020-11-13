@@ -1,6 +1,6 @@
 <div>
     @error('code')
-        <x-utils.alert type="danger">
+        <x-utils.alert color="red" :showIcon="false" class="rounded-md">
             {{ $message }}
         </x-utils.alert>
     @enderror

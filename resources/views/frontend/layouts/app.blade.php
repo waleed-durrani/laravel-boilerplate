@@ -1,16 +1,13 @@
 @extends('layouts.base')
 
-@section('body')
+@section('content')
     @include('includes.partials.read-only')
     @include('includes.partials.logged-in-as')
     @include('includes.partials.announcements')
+    @include('frontend.includes.nav')
+    @include('includes.partials.messages')
 
-    <div>
-        @include('frontend.includes.nav')
-        @include('includes.partials.messages')
-
-        <main>
-            @yield('content')
-        </main>
-    </div><!--app-->
+    <main>
+        @yield('body')
+    </main>
 @endsection

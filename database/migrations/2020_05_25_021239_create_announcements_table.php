@@ -16,7 +16,7 @@ class CreateAnnouncementsTable extends Migration
         Schema::create('announcements', function (Blueprint $table) {
             $table->id();
             $table->enum('area', ['frontend', 'backend'])->nullable();
-            $table->enum('type', ['info', 'danger', 'warning', 'success'])->default('info');
+            $table->string('color')->default('blue');
             $table->text('message');
             $table->boolean('enabled')->default(true);
             $table->timestamp('starts_at')->nullable();
