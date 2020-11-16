@@ -5,7 +5,10 @@
     @include('includes.partials.logged-in-as')
     @include('includes.partials.announcements')
     @include('frontend.includes.nav')
-    @include('includes.partials.messages')
+
+    <div class="container mx-auto sm:mt-5">
+        @include('includes.partials.messages')
+    </div>
 
     <main>
         @yield('body')
