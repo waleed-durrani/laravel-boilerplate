@@ -3,7 +3,7 @@
 @section('title', __('Terms & Conditions'))
 
 @section('body')
-    <div class="max-w-screen-lg mx-auto mb-4 bg-white shadow lg:rounded-lg">
+    <div class="max-w-screen-lg mx-auto mb-4 bg-white shadow lg:mt-8 lg:rounded-lg">
         <div class="bg-gray-50 border-b border-gray-200 px-4 py-5 sm:px-6">
             @lang('Terms & Conditions')
         </div>

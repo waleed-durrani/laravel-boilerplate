@@ -1,10 +1,48 @@
 @props(['color' => 'green', 'showIcon' => true])
 
-<div {{ $attributes->merge(['class' => 'bg-'.$color.'-50 p-4']) }} role="alert">
+{{-- We need to do it this way so that PurgeCSS can find the class names --}}
+{{-- See: https://tailwindcss.com/docs/controlling-file-size#writing-purgeable-html --}}
+@php
+    switch($color) {
+        case 'green':default:
+            $colors = [
+                'bg' => 'bg-green-50',
+                'icon' => 'text-green-400',
+                'text' => 'text-green-800',
+            ];
+        break;
+
+        case 'blue':
+            $colors = [
+                'bg' => 'bg-blue-50',
+                'icon' => 'text-blue-400',
+                'text' => 'text-blue-800',
+            ];
+        break;
+
+        case 'yellow':
+            $colors = [
+                'bg' => 'bg-yellow-50',
+                'icon' => 'text-yellow-400',
+                'text' => 'text-yellow-800',
+            ];
+        break;
+
+        case 'red':
+            $colors = [
+                'bg' => 'bg-red-50',
+                'icon' => 'text-red-400',
+                'text' => 'text-red-800',
+            ];
+        break;
+    }
+@endphp
+
+<div {{ $attributes->merge(['class' => $colors['bg'] . ' p-4']) }} role="alert">
     <div class="flex">
         @if ($showIcon)
             <div class="flex-shrink-0">
-                <span class="text-{{ $color }}-400">
+                <span class="{{ $colors['icon'] }}">
                     @if (isset($icon))
                         {{ $icon }}
                     @else
@@ -17,7 +55,7 @@
         @endif
 
         <div class="@if ($showIcon) ml-3 @endif">
-            <p class="text-sm leading-5 font-medium text-{{ $color }}-800">
+            <p class="text-sm leading-5 font-medium {{ $colors['text'] }}">
                 {{ $slot }}
             </p>
         </div>
