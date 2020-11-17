@@ -2,20 +2,13 @@
 
 @section('title', __('Dashboard'))
 
-@section('content')
-    <div class="container py-4">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <x-frontend.card>
-                    <x-slot name="header">
-                        @lang('Dashboard')
-                    </x-slot>
-
-                    <x-slot name="body">
-                        @lang('You are logged in!')
-                    </x-slot>
-                </x-frontend.card>
-            </div><!--col-md-10-->
-        </div><!--row-->
-    </div><!--container-->
+@section('body')
+    <div class="max-w-screen-lg mx-auto bg-white shadow lg:rounded-lg">
+        <div class="bg-gray-50 border-b border-gray-200 px-4 py-5 sm:px-6">
+            @lang('Dashboard')
+        </div>
+        <div class="px-4 py-5 sm:p-6">
+            @lang('You are logged in!')
+        </div>
+    </div>
 @endsection

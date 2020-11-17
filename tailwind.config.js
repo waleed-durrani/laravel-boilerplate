@@ -8,7 +8,9 @@ module.exports = {
             },
         },
     },
-    variants: {},
+    variants: {
+        opacity: ['responsive', 'hover', 'focus', 'disabled'],
+    },
     purge: {
         content: [
             './storage/framework/views/*.php',

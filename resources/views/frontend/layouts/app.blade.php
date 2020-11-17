@@ -6,7 +6,7 @@
     @include('includes.partials.announcements')
     @include('frontend.includes.nav')
 
-    <div class="container mx-auto sm:mt-5">
+    <div class="container mx-auto">
         @include('includes.partials.messages')
     </div>
 
