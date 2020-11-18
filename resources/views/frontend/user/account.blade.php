@@ -3,83 +3,71 @@
 @section('title', __('My Account'))
 
 @section('body')
-    <div class="container py-4">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <x-frontend.card>
-                    <x-slot name="header">
-                        @lang('My Account')
-                    </x-slot>
+    <div class="max-w-screen-lg mx-auto bg-white shadow lg:mt-8 lg:rounded-lg">
+        <div class="bg-gray-50 border-b border-gray-200 px-4 py-5 sm:px-6">
+            @lang('My Account')
+        </div>
+        <div class="px-4 py-5 sm:p-6">
+            <div x-data="{ tab: 'profile' }">
+                <div class="flex -mx-px">
+                    <button
+                        x-on:click="tab = 'profile'"
+                        x-bind:class="{ 'bg-gray-100 border-white': tab === 'profile' }"
+                        class="bg-transparent hover:bg-gray-200 text-gray-700 text-sm md:text-base font-semibold rounded-t focus:outline-none mx-px py-px md:py-2 px-3 md:px-4"
+                        type="button"
+                    >
+                        @lang('My Profile')
+                    </button>
 
-                    <x-slot name="body">
-                        <nav>
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <x-utils.link
-                                    :text="__('My Profile')"
-                                    class="nav-link active"
-                                    id="my-profile-tab"
-                                    data-toggle="pill"
-                                    href="#my-profile"
-                                    role="tab"
-                                    aria-controls="my-profile"
-                                    aria-selected="true" />
+                    <button
+                        x-on:click="tab = 'information'"
+                        x-bind:class="{ 'bg-gray-100 border-white': tab === 'information' }"
+                        class="bg-transparent hover:bg-gray-200 text-gray-700 font-semibold rounded-t focus:outline-none mx-px py-2 px-4"
+                        type="button"
+                    >
+                        @lang('Edit Information')
+                    </button>
 
-                                <x-utils.link
-                                    :text="__('Edit Information')"
-                                    class="nav-link"
-                                    id="information-tab"
-                                    data-toggle="pill"
-                                    href="#information"
-                                    role="tab"
-                                    aria-controls="information"
-                                    aria-selected="false"/>
+                    @if (! $logged_in_user->isSocial())
+                        <button
+                            x-on:click="tab = 'password'"
+                            x-bind:class="{ 'bg-gray-100 border-white': tab === 'password' }"
+                            class="bg-transparent hover:bg-gray-200 text-gray-700 text-sm md:text-base font-semibold rounded-t focus:outline-none mx-px py-px md:py-2 px-3 md:px-4"
+                            type="button"
+                        >
+                            @lang('Password')
+                        </button>
+                    @endif
 
-                                @if (! $logged_in_user->isSocial())
-                                    <x-utils.link
-                                        :text="__('Password')"
-                                        class="nav-link"
-                                        id="password-tab"
-                                        data-toggle="pill"
-                                        href="#password"
-                                        role="tab"
-                                        aria-controls="password"
-                                        aria-selected="false" />
-                                @endif
+                    <button
+                        x-on:click="tab = 'two-factor-authentication'"
+                        x-bind:class="{ 'bg-gray-100 border-white': tab === 'two-factor-authentication' }"
+                        class="bg-transparent hover:bg-gray-200 text-gray-700 text-sm md:text-base font-semibold rounded-t focus:outline-none mx-px py-px md:py-2 px-3 md:px-4"
+                        type="button"
+                    >
+                        @lang('Two Factor Authentication')
+                    </button>
+                </div>
+                <ul class="bg-gray-100 text-sm rounded-b p-4">
+                    <li x-show="tab === 'profile'">
+                        @include('frontend.user.account.tabs.profile')
+                    </li>
 
-                                <x-utils.link
-                                    :text="__('Two Factor Authentication')"
-                                    class="nav-link"
-                                    id="two-factor-authentication-tab"
-                                    data-toggle="pill"
-                                    href="#two-factor-authentication"
-                                    role="tab"
-                                    aria-controls="two-factor-authentication"
-                                    aria-selected="false"/>
-                            </div>
-                        </nav>
+                    <li x-show="tab === 'information'">
+                        @include('frontend.user.account.tabs.information')
+                    </li>
 
-                        <div class="tab-content" id="my-profile-tabsContent">
-                            <div class="tab-pane fade pt-3 show active" id="my-profile" role="tabpanel" aria-labelledby="my-profile-tab">
-                                @include('frontend.user.account.tabs.profile')
-                            </div><!--tab-profile-->
+                    @if (! $logged_in_user->isSocial())
+                        <li x-show="tab === 'password'">
+                            @include('frontend.user.account.tabs.password')
+                        </li>
+                    @endif
 
-                            <div class="tab-pane fade pt-3" id="information" role="tabpanel" aria-labelledby="information-tab">
-                                @include('frontend.user.account.tabs.information')
-                            </div><!--tab-information-->
-
-                            @if (! $logged_in_user->isSocial())
-                                <div class="tab-pane fade pt-3" id="password" role="tabpanel" aria-labelledby="password-tab">
-                                    @include('frontend.user.account.tabs.password')
-                                </div><!--tab-password-->
-                            @endif
-
-                            <div class="tab-pane fade pt-3" id="two-factor-authentication" role="tabpanel" aria-labelledby="two-factor-authentication-tab">
-                                @include('frontend.user.account.tabs.two-factor-authentication')
-                            </div><!--tab-information-->
-                        </div><!--tab-content-->
-                    </x-slot>
-                </x-frontend.card>
-            </div><!--col-md-10-->
-        </div><!--row-->
-    </div><!--container-->
+                    <li x-show="tab === 'two-factor-authentication'">
+                        @include('frontend.user.account.tabs.two-factor-authentication')
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 @endsection
