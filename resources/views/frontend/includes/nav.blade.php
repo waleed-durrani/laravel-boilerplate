@@ -19,7 +19,8 @@
                     </button>
                 </div>
 
-                <div x-show="open"
+                <div x-cloak
+                     x-show="open"
                      x-transition:enter="transition ease-out duration-100"
                      x-transition:enter-start="transform opacity-0 scale-95"
                      x-transition:enter-end="transform opacity-100 scale-100"
@@ -57,7 +58,8 @@
                     </button>
                 </div>
 
-                <div x-show="open"
+                <div x-cloak
+                     x-show="open"
                      x-transition:enter="transition ease-out duration-100"
                      x-transition:enter-start="transform opacity-0 scale-95"
                      x-transition:enter-end="transform opacity-100 scale-100"
@@ -66,7 +68,7 @@
                      x-transition:leave-end="transform opacity-0 scale-95"
                      class="origin-top-right absolute right-0 mt-2 w-56 min-w-max rounded-md shadow-lg"
                 >
-                    <div class="rounded-md bg-white shadow-xs">
+                    <div class="rounded-md bg-white ring-1 ring-black ring-opacity-5">
                         <div class="px-4 py-3">
                             <p class="font-medium text-gray-900">{{ $logged_in_user->name }}</p>
                         </div>

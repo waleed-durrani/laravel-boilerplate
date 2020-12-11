@@ -1,6 +1,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+// const colors = require('tailwindcss/colors');
 
 module.exports = {
+    darkMode: false,
     theme: {
         extend: {
             fontFamily: {
@@ -9,7 +11,9 @@ module.exports = {
         },
     },
     variants: {
-        opacity: ['responsive', 'hover', 'focus', 'disabled'],
+        extend: {
+            opacity: ['disabled'],
+        }
     },
     purge: {
         content: [
@@ -18,6 +22,8 @@ module.exports = {
         ],
     },
     plugins: [
-        require('@tailwindcss/ui'),
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/aspect-ratio'),
     ],
 };
